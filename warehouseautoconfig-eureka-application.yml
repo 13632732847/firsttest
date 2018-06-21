@@ -1,0 +1,40 @@
+﻿spring:    
+  profiles:
+    active:
+    - dev
+    
+---    
+  
+spring:
+  profiles: dev
+  
+server:
+  port: 7400 
+   
+eureka:
+  instance:
+    hostname: localhost  #單個eureka server服務可以使用 localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url: 
+      defaultZone:  http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---    
+  
+spring:
+  profiles: test
+   
+server:
+  port: 7500
+  
+eureka:
+  instance:
+    hostname: localhost  #單個eureka server服務可以使用 localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url: 
+      defaultZone:  http://${eureka.instance.hostname}:${server.port}/eureka/
+               
+#保存為utf-8    

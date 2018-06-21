@@ -1,0 +1,93 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+    
+---
+server:
+  port: 5400
+
+spring:
+  profiles: dev
+  application:
+    name:  warehouseautoconfigprovider
+  datasource:
+    name: dswarehouse
+    url: jdbc:mysql://127.0.0.1:3306/dbwarehouse?characterEncoding=utf8
+    username: root
+    password: 123456  
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    dbcp2:
+      max-wait-millis: 1000
+      min-idle: 5
+      initial-size: 5
+      validation-query: select 'x'
+    
+    
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations:
+  - classpath:mapping/*.xml
+  type-aliases-package: com.warehouse.mapper
+   
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7400/eureka/  #單臺eureka server時使用
+  instance:
+    instance-id:   warehouseprovider5400 
+    prefer-ip-address: true     #鼠標放在服務實例上,狀態欄顯示IP地址
+  
+info:
+  servicename: product-operation      #服務名稱,key與value自定義
+  atifactid: $project.artifactId$  
+  version: $project.version$
+
+
+---
+server:
+  port: 5500
+
+spring:
+  profiles: test
+  application:
+    name:  warehouseautoconfigprovider
+  datasource:
+    name: dswarehouse
+    url: jdbc:mysql://127.0.0.1:3306/dbwarehouse?characterEncoding=utf8
+    username: root
+    password: 123456  
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    dbcp2:
+      max-wait-millis: 1000
+      min-idle: 5
+      initial-size: 5
+      validation-query: select 'x'
+    
+    
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations:
+  - classpath:mapping/*.xml
+  type-aliases-package: com.warehouse.mapper
+   
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7500/eureka/  #單臺eureka server時使用
+  instance:
+    instance-id:   warehouseprovider5500 
+    prefer-ip-address: true     #鼠標放在服務實例上,狀態欄顯示IP地址
+  
+info:
+  servicename: product-operation      #服務名稱,key與value自定義
+  atifactid: $project.artifactId$  
+  version: $project.version$
+    
+
+#保存為utf-8     
+
+
+   
