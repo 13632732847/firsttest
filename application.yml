@@ -1,0 +1,17 @@
+﻿spring:          
+  profiles:
+    active:
+    - dev
+---
+spring:
+  application:
+    name: warehouse-configserver-dev
+
+
+---
+spring:
+  application:
+    name: warehouse-configserver-test   
+
+
+#保存為utf-8 
