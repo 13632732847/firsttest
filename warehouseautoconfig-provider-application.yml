@@ -41,8 +41,8 @@ eureka:
   
 info:
   servicename: autoconfig-product-operation      #服務名稱,key與value自定義
-  atifactid: $project.artifactId$  
-  version: $project.version$
+  atifactid: auto-config-provider  
+  version: snap-shot
 
 
   
@@ -85,8 +85,8 @@ eureka:
   
 info:
   servicename: autoconfig-product-operation      #服務名稱,key與value自定義
-  atifactid: $project.artifactId$  
-  version: $project.version$
+  atifactid: auto-config-provider 
+  version: snap-shot
     
 
 #保存為utf-8     
