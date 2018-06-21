@@ -4,16 +4,16 @@
     - dev
 ---
 spring:
-profiles: dev
+  profiles: dev
   application:
     name: warehouse-configserver-dev
 
 
 ---
 spring:
- profiles: test
+  profiles: test
   application:
-    name: warehouse-configserver-test   
+    name: warehouse-configserver-test1   
 
 
 #保存為utf-8 
