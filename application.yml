@@ -4,12 +4,14 @@
     - dev
 ---
 spring:
+profiles: dev
   application:
     name: warehouse-configserver-dev
 
 
 ---
 spring:
+ profiles: test
   application:
     name: warehouse-configserver-test   
 
